@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     EditText editText;
+    TextView textView;
     Button btnSeven, btnEight, btnNine, btnPlus, btnFour, btnFive, btnSix, btnMinus, btnOne, btnTwo, btn3, btnMultiply, btn0, btnEquals, btnCancel, btnDivision;
 
     String displayNum ="";
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        editText = findViewById(R.id.result);
+        textView = findViewById(R.id.result);
+        editText = findViewById(R.id.edit);
         btnOne = findViewById(R.id.btnOne);
         btnTwo = findViewById(R.id.btnTwo);
         btn3 = findViewById(R.id.btn3);
@@ -136,11 +138,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnEquals:
                 num2 = Integer.parseInt(displayNum);
                 result = getResult(operator, num1,num2);
-                editText.setText(String.valueOf(result));
+                textView.setText(String.valueOf(result));
                 break;
 
             case R.id.btnCancel:
                 editText.setText("");
+                textView.setText("");
+                displayNum = "";
+                break;
         }
     }
 
