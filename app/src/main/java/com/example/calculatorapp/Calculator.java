@@ -7,8 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class Calculator extends AppCompatActivity implements View.OnClickListener{
 
     EditText editText;
     TextView textView;
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_calculator);
+
         textView = findViewById(R.id.result);
         editText = findViewById(R.id.edit);
         btnOne = findViewById(R.id.btnOne);
@@ -112,33 +114,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btnPlus:
-                num1 = Integer.parseInt(displayNum);
-                displayNum = "";
-                operator = "+";
+                if (editText.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Enter number please", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    num1 = Integer.parseInt(displayNum);
+                    displayNum = "";
+                    operator = "+";
+                }
                 break;
 
+
             case  R.id.btnMinus:
-                num1 = Integer.parseInt(displayNum);
-                displayNum = "";
-                operator = "-";
+                if (editText.getText().toString().isEmpty()){
+                    Toast.makeText(this, "Enter number please", Toast.LENGTH_SHORT).show();
+                }else {
+                    num1 = Integer.parseInt(displayNum);
+                    displayNum = "";
+                    operator = "-";
+                }
+
                 break;
 
             case R.id.btnMultiply:
-                num1 = Integer.parseInt(displayNum);
-                displayNum = "";
-                operator = "*";
+                if (editText.getText().toString().isEmpty()){
+                    Toast.makeText(this, "Enter number please", Toast.LENGTH_SHORT).show();
+                }else{
+                    num1 = Integer.parseInt(displayNum);
+                    displayNum = "";
+                    operator = "*";
+                }
+
                 break;
 
             case R.id.btnDivision:
-                num1 = Integer.parseInt(displayNum);
-                displayNum = "";
-                operator = "/";
+                if (editText.getText().toString().isEmpty()){
+                    Toast.makeText(this, "Enter number please", Toast.LENGTH_SHORT).show();
+                }else{
+                    num1 = Integer.parseInt(displayNum);
+                    displayNum = "";
+                    operator = "/";
+                }
+
                 break;
 
             case R.id.btnEquals:
-                num2 = Integer.parseInt(displayNum);
-                result = getResult(operator, num1,num2);
-                textView.setText(String.valueOf(result));
+                if (editText.getText().toString().isEmpty()){
+                    Toast.makeText(this, "Enter number please", Toast.LENGTH_SHORT).show();
+                }else {
+                    num2 = Integer.parseInt(displayNum);
+                    result = getResult(operator, num1,num2);
+                    textView.setText(String.valueOf(result));
+                }
+
                 break;
 
             case R.id.btnCancel:

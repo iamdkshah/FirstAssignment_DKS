@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:id="@+id/btnClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="Click"/>
+
+    <ImageView
+        android:id="@+id/imgLion"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/lionking"
+        android:visibility="invisible"
+        android:layout_below="@+id/btnClick"/>
+
+    <ImageView
+        android:id="@+id/imgTiger"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/tiger"
+        android:visibility="invisible"
+        android:layout_toEndOf="@+id/imgLion"
+        android:layout_toRightOf="@+id/imgLion"
+        android:layout_below="@+id/btnClick"/>
+
+    <ImageView
+        android:id="@+id/imgSnake"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        android:src="@drawable/snake"
+        android:layout_below="@+id/imgLion"/>
+
+    <ImageView
+        android:id="@+id/imgBird"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        android:src="@drawable/bird"
+        android:layout_toRightOf="@+id/imgSnake"
+        android:layout_below="@+id/imgTiger"/>
+
+
+</RelativeLayout>
